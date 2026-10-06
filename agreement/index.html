@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สัญญากู้ยืมเงิน (แบบไม่มีดอกเบี้ย)</title>
+    <!-- ใช้ Tailwind CSS สำหรับการจัดหน้าเว็บที่สวยงาม -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            input[type="text"], input[type="number"], input[type="date"], select { 
+                border: none !important; 
+                background: transparent !important;
+                outline: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border-bottom: 1px dotted #000 !important;
+                border-radius: 0 !important;
+                color: #000 !important;
+            }
+            body { padding: 0; background: white; }
+            .container { max-width: 100% !important; margin: 0; padding: 0; box-shadow: none !important; border: none !important; }
+            .page-break { page-break-before: always; }
+        }
+        body { font-family: 'Sarabun', sans-serif; background-color: #f3f4f6; }
+        .dotted-input { border-bottom: 1px dotted #9ca3af; border-top: none; border-left: none; border-right: none; border-radius: 0; background-color: transparent; }
+        .dotted-input:focus { outline: none; border-bottom: 1px solid #3b82f6; box-shadow: none; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="py-10">
+    <div class="container mx-auto bg-white p-10 max-w-4xl shadow-xl border border-gray-200 text-gray-800">
+        
+        <div class="text-right mb-6 no-print">
+            <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-md shadow-md inline-flex items-center transition-colors">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                <span>พิมพ์เอกสาร / Save เป็น PDF</span>
+            </button>
+        </div>
+
+        <h1 class="text-2xl font-bold text-center mb-8">สัญญากู้ยืมเงิน (แบบไม่มีดอกเบี้ย)</h1>
+
+        <div class="flex justify-end mb-6 text-sm md:text-base">
+            <div class="flex flex-col w-72 space-y-3">
+                <div class="flex items-center">
+                    <span class="mr-2 whitespace-nowrap">ทำที่</span>
+                    <input type="text" class="dotted-input flex-grow px-2 py-1" placeholder="สถานที่ทำสัญญา">
+                </div>
+                <div class="flex items-center">
+                    <span class="mr-2 whitespace-nowrap">วันที่</span>
+                    <input type="date" class="dotted-input flex-grow px-2 py-1">
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4 mb-8 leading-loose text-sm md:text-base">
+            <div class="flex flex-wrap items-center">
+                <span class="font-semibold mr-2">สัญญานี้ทำขึ้นระหว่าง</span> ข้าพเจ้า 
+                <input type="text" class="dotted-input flex-grow px-2 mx-2" placeholder="ชื่อ-นามสกุล ผู้กู้">
+                อายุ <input type="number" class="dotted-input w-16 px-2 mx-2 text-center" placeholder="ปี"> ปี
+            </div>
+            <div class="flex flex-wrap items-center">
+                บัตรประจำตัวประชาชนเลขที่ <input type="text" class="dotted-input flex-grow px-2 mx-2" placeholder="เลขบัตร 13 หลัก">
+            </div>
+            <div class="flex flex-wrap items-center gap-y-2">
+                อยู่บ้านเลขที่ <input type="text" class="dotted-input w-24 px-2 mx-1">
+                หมู่ที่ <input type="text" class="dotted-input w-16 px-2 mx-1">
+                ซอย <input type="text" class="dotted-input w-40 px-2 mx-1">
+                ถนน <input type="text" class="dotted-input flex-grow px-2 mx-1">
+            </div>
+            <div class="flex flex-wrap items-center gap-y-2">
+                ตำบล/แขวง <input type="text" class="dotted-input flex-grow px-2 mx-1">
+                อำเภอ/เขต <input type="text" class="dotted-input flex-grow px-2 mx-1">
+                จังหวัด <input type="text" class="dotted-input flex-grow px-2 mx-1">
+            </div>
+            <div>ซึ่งต่อไปในสัญญานี้เรียกว่า <span class="font-bold">"ผู้กู้"</span> ฝ่ายหนึ่ง</div>
+        </div>
+
+        <div class="space-y-4 mb-8 leading-loose text-sm md:text-base">
+            <div class="flex flex-wrap items-center">
+                <span class="font-semibold mr-2">และ</span> 
+                <input type="text" class="dotted-input flex-grow px-2 mx-2" placeholder="ชื่อ-นามสกุล ผู้ให้กู้">
+                อายุ <input type="number" class="dotted-input w-16 px-2 mx-2 text-center" placeholder="ปี"> ปี
+            </div>
+            <div class="flex flex-wrap items-center">
+                บัตรประจำตัวประชาชนเลขที่ <input type="text" class="dotted-input flex-grow px-2 mx-2" placeholder="เลขบัตร 13 หลัก">
+            </div>
+            <div class="flex flex-wrap items-center gap-y-2">
+                อยู่บ้านเลขที่ <input type="text" class="dotted-input w-24 px-2 mx-1">
+                หมู่ที่ <input type="text" class="dotted-input w-16 px-2 mx-1">
+                ซอย <input type="text" class="dotted-input w-40 px-2 mx-1">
+                ถนน <input type="text" class="dotted-input flex-grow px-2 mx-1">
+            </div>
+            <div class="flex flex-wrap items-center gap-y-2">
+                ตำบล/แขวง <input type="text" class="dotted-input flex-grow px-2 mx-1">
+                อำเภอ/เขต <input type="text" class="dotted-input flex-grow px-2 mx-1">
+                จังหวัด <input type="text" class="dotted-input flex-grow px-2 mx-1">
+            </div>
+            <div>ซึ่งต่อไปในสัญญานี้เรียกว่า <span class="font-bold">"ผู้ให้กู้"</span> อีกฝ่ายหนึ่ง</div>
+        </div>
+
+        <div class="mb-4">ทั้งสองฝ่ายตกลงทำสัญญากันดังมีข้อความต่อไปนี้</div>
+
+        <div class="space-y-5 mb-8 leading-loose pl-0 md:pl-4 text-sm md:text-base">
+            <div class="flex flex-wrap items-center gap-y-2">
+                <span class="font-bold mr-2">ข้อ 1.</span> ผู้กู้ได้ตกลงกู้ยืมเงินจากผู้ให้กู้ เป็นจำนวนเงิน
+                <input type="number" class="dotted-input w-32 px-2 mx-2 text-center" placeholder="ตัวเลข"> บาท 
+                (ตัวอักษร: <input type="text" class="dotted-input flex-grow px-2 mx-2 text-center" placeholder="จำนวนเงินตัวอักษร">)
+            </div>
+            <div class="flex flex-wrap items-center gap-y-2">
+                โดยไม่มีการคิดดอกเบี้ย และผู้กู้ได้รับเงินจำนวนดังกล่าว 
+                <select class="dotted-input bg-transparent pb-1 mx-2">
+                    <option>เป็นเงินสด</option>
+                    <option>ผ่านการโอนเข้าบัญชีธนาคาร</option>
+                </select>
+                <input type="text" class="dotted-input flex-grow px-2" placeholder="ชื่อธนาคารและเลขบัญชี (ถ้ามี)">
+                ไว้เรียบร้อยแล้วในวันที่ทำสัญญานี้
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-y-2">
+                <span class="font-bold mr-2">ข้อ 2.</span> ผู้กู้ตกลงจะนำเงินต้น มาชำระคืนให้แก่ผู้ให้กู้ภายในวันที่
+                <input type="date" class="dotted-input w-48 px-2 mx-2">
+            </div>
+            <div class="text-gray-500 text-sm italic md:pl-10 no-print flex flex-wrap items-center">
+                * หรือหากต้องการผ่อนชำระ: ตกลงชำระเป็นรายเดือน เดือนละ <input type="number" class="dotted-input w-24 px-1 mx-1 text-center" placeholder="จำนวนเงิน"> บาท 
+                ทุกวันที่ <input type="number" class="dotted-input w-16 px-1 mx-1 text-center" placeholder="1-31"> ของเดือน
+            </div>
+
+            <div>
+                <span class="font-bold mr-2">ข้อ 3.</span> หากผู้กู้ผิดนัดชำระหนี้ตามที่ระบุไว้ในข้อ 2 ผู้กู้ยินยอมให้ผู้ให้กู้คิดดอกเบี้ยผิดนัดชำระหนี้ในอัตราร้อยละ 5 ต่อปี นับแต่วันผิดนัด และยินยอมรับผิดชอบชดใช้ค่าเสียหาย ตลอดจนค่าใช้จ่ายในการติดตามทวงถามและค่าทนายความที่เกิดขึ้นจริงให้แก่ผู้ให้กู้ทั้งสิ้น
+            </div>
+        </div>
+
+        <div class="mb-12 indent-8 text-sm md:text-base">
+            สัญญานี้ทำขึ้นเป็นสองฉบับมีข้อความถูกต้องตรงกัน ทั้งสองฝ่ายได้อ่านและเข้าใจข้อความในสัญญาโดยตลอดแล้ว จึงได้ลงลายมือชื่อไว้เป็นสำคัญต่อหน้าพยาน และต่างเก็บไว้ฝ่ายละฉบับ
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <div class="text-center">
+                <div class="mb-2">ลงชื่อ......................................................... ผู้กู้</div>
+                <div>(<input type="text" class="dotted-input w-48 px-2 text-center" placeholder="ชื่อตัวบรรจง">)</div>
+            </div>
+            <div class="text-center">
+                <div class="mb-2">ลงชื่อ......................................................... ผู้ให้กู้</div>
+                <div>(<input type="text" class="dotted-input w-48 px-2 text-center" placeholder="ชื่อตัวบรรจง">)</div>
+            </div>
+            <div class="text-center">
+                <div class="mb-2">ลงชื่อ......................................................... พยาน</div>
+                <div>(<input type="text" class="dotted-input w-48 px-2 text-center" placeholder="ชื่อตัวบรรจง">)</div>
+            </div>
+            <div class="text-center">
+                <div class="mb-2">ลงชื่อ......................................................... พยาน</div>
+                <div>(<input type="text" class="dotted-input w-48 px-2 text-center" placeholder="ชื่อตัวบรรจง">)</div>
+            </div>
+        </div>
+
+        <!-- Section สำหรับแนบรูปภาพ (ใช้พิมพ์ต่อท้ายเอกสาร) -->
+        <div class="border-t-2 border-gray-200 pt-8 mt-12 page-break">
+            <h2 class="text-xl font-bold mb-2 no-print text-blue-700">แนบหลักฐาน (สำเนาบัตรประชาชน / สลิปโอนเงิน)</h2>
+            <div class="mb-6 no-print bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <label class="block text-sm font-medium text-gray-700 mb-2">เลือกรูปภาพเพื่อแนบไว้ท้ายสัญญา</label>
+                <input type="file" id="imageInput" accept="image/*" multiple class="block w-full text-sm text-gray-500
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-md file:border-0
+                file:text-sm file:font-semibold
+                file:bg-blue-600 file:text-white
+                hover:file:bg-blue-700 cursor-pointer">
+                <p class="text-xs text-gray-500 mt-2">* เมื่อกดปุ่ม "พิมพ์เอกสาร / Save เป็น PDF" รูปที่คุณเลือกจะถูกปรินท์ต่อท้ายสัญญาโดยอัตโนมัติ</p>
+            </div>
+            <!-- พื้นที่แสดงรูปภาพ -->
+            <div id="imagePreview" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const previewContainer = document.getElementById('imagePreview');
+            previewContainer.innerHTML = ''; 
+            
+            const files = e.target.files;
+            
+            for(let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if(!file.type.startsWith('image/')){ continue }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const div = document.createElement('div');
+                    div.className = 'border p-2 rounded shadow-sm bg-white print:border-none print:shadow-none print:p-0';
+                    div.innerHTML = `
+                        <img src="${e.target.result}" class="w-full h-auto object-contain max-h-[500px]" />
+                    `;
+                    previewContainer.appendChild(div);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
